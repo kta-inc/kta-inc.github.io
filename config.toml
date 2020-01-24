@@ -1,0 +1,33 @@
+baseurl = "https://kta-inc.github.io/"
+author = "KTA企画"
+title = "KTA企画"
+languageCode = "ja"
+ theme = "foundation-theme"
+enableRobotsTXT = true
+SectionPagesMenu = ["main", "social"]
+
+[params.meta]
+description = "KTA企画"
+
+[params.main]
+keywords = ""
+
+[params.footer]
+github = "https://github.com/kta-inc"
+
+[[menu.main]]
+name = "Top"
+url = "/"
+weight = 1
+
+
+[[menu.main]]
+name = "Product"
+url = "/"
+weight = 2
+
+[[menu.main]]
+name = "About us"
+url = "/"
+weight = 3
+

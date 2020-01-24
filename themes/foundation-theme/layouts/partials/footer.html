@@ -1,0 +1,27 @@
+{{ "<!-- BEGIN FOOTER -->" | safeHTML }}
+<footer>
+<div class="wrapper row small-up-1 medium-up-2">
+		
+		<div class="column">
+			<h4>Contact Info</h4>
+			<hr>
+			<a><span>Email </span>{{ .Site.Params.footer.email }}</a>
+			<a href="{{ .Site.Params.footer.github }}"><span>Github </span>{{ .Site.Params.footer.github }}</a>
+			<a href="{{ .Site.Params.footer.facebook }}"><span>Facebook </span>{{ .Site.Params.footer.facebook }}</a>
+			<a href="{{ .Site.Params.footer.twitter }}"><span>Twitter </span>{{ .Site.Params.footer.twitter }}</a>
+		</div>
+		
+		<div class="column">
+			<h4>Links</h4>
+			<hr>
+			{{ $currentNode := . }}
+			{{ range .Site.Menus.main }}
+			<a class="nav-item{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Name}}</a>
+			{{end}}
+			<a><span>瀬田研究室 </span>{{ .Site.Params.footer.labsite }}</a>
+			<a><span>秋葉原IT戦略研究所 </span>{{ .Site.Params.footer.aisl }}</a>
+			<a><span>関西Lispユーザ会 </span>{{ .Site.Params.footer.kansailisp }}</a>
+		</div>
+	</div>
+</footer> {{ "<!-- END FOOTER -->" | safeHTML }}
+	

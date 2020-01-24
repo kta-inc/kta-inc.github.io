@@ -1,0 +1,19 @@
+{{ "<!-- BEGIN FOOTER -->" | safeHTML }}
+<footer>
+<div class="wrapper row small-up-1 medium-up-2">
+		
+		<div class="column">
+			<h4>Contact Info</h4>
+			<hr>
+			<a><span>Email </span>{{ .Site.Params.footer.email }}</a>
+			<a href="{{ .Site.Params.footer.github }}"><span>Github </span>{{ .Site.Params.footer.github }}</a>
+		</div>
+		
+		<div class="column">
+			<h4>Links</h4>
+			<hr>
+			{{ $currentNode := . }}
+		</div>
+	</div>
+</footer> {{ "<!-- END FOOTER -->" | safeHTML }}
+	

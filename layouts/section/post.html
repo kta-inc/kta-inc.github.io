@@ -1,0 +1,97 @@
+<!doctype html>
+<html class="no-js" lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title> {{ .Site.Title }} - {{.Title}} </title>
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/foundation.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{{ .Site.BaseURL }}css/styles.css" type="text/css" media="screen">
+  </head>
+
+  <body>
+    <div class="off-canvas-wrapper"> {{ "<!-- Definition of global off canvas wrapper -->" | safeHTML }}
+      <div class="off-canvas-wrapper-inner" data-off-canvas-wrapper>	{{ "<!-- Definition of inner off canvas wrapper -->" | safeHTML }}
+	
+	{{ "<!-- Menu -->" | safeHTML }}
+	<div class="off-canvas position-left" id="mobile-menu" data-off-canvas>
+          <ul>
+	    {{ $currentNode := . }}
+	    {{ range .Site.Menus.main }}
+            <li><a class="nav-item{{if or ($currentNode.IsMenuCurrent "main" .) ($currentNode.HasMenuCurrent "main" .) }} active{{end}}" href="{{.URL}}">{{ .Name}}</a></li>
+	    {{end}}
+          </ul>
+	</div>	
+	
+	{{ "<!-- Page Content -->" | safeHTML }}
+      	<div class="off-canvas-content" data-off-canvas-content>
+	  
+	  {{ "<!-- Foundation Mobile Menu -->" | safeHTML }}
+	  
+	  <div class="titlebar show-for-small-only">
+	    <div class="title-bar left">
+	      <button class="menu-icon" type="button" data-open="mobile-menu"></button>
+	      <span class="title-bar-title">MENU</span>
+	    </div>
+	  </div>
+
+	  {{ "<!-- Partials that make up the site -->" | safeHTML }}
+	  {{ partial "nav.html" . }}
+	  
+	  <!-- Add your own content here -->
+	  <section class="main-content">
+	    <div class="wrapper row">
+	      <div class="small-12 medium-12 column content-one">
+		<h1><u>Dialy</u></h1>
+		<br />
+		{{ $paginator := .Paginate (where .Data.Pages "Type" "post" ) 5}}
+
+		{{ range $paginator.Pages.ByDate.Reverse }}
+		
+		
+		<div style="float:left; width:700px; height:200; word-wrap:break-word;">
+		  <a href={{ .Site.BaseURL }}/post/{{ .File.TranslationBaseName }}>					    
+		    <h4><u><i>{{ .Title }}</i></u></h4>
+		  </a>
+		  
+		  {{ .Summary }}
+
+		</div>
+		<div style="float:left; margin-left:20px;">
+		  {{ with .Params.sambnail }}
+		  <img src="/post/image/{{ . }}" width="120" height="90" />
+		  {{ end }}
+		  <div style="clear: both;"></div>
+		  <div style="float:right; margin-top:30px;"><date>{{ .File.TranslationBaseName }}</date></div>
+		</div>
+		{{end}}
+		
+	      </div>
+	      <div style="float:right">
+		{{ template "_internal/pagination.html" . }}
+	      </div>
+	      <div style="clear: both;"></div>
+	      
+	    </div>
+	  </section>
+	  
+	  {{ partial "footer.html" . }}
+	</div> {{ "<!-- End page content menu wrapper -->" | safeHTML }}
+	
+      </div> {{ "<!-- End of global off canvas inner wrapper -->" | safeHTML }}
+    </div> {{ "<!-- End of global off canvas wrapper -->" | safeHTML }}
+    
+    
+    {{ "<!-- JS includes -->" | safeHTML }}
+    
+    <script src="{{ .Site.BaseURL }}js/jquery.js"></script>
+    <script src="{{ .Site.BaseURL }}js/what-input.js"></script>
+    <script src="{{ .Site.BaseURL }}js/foundation.js"></script>
+    <script src="{{ .Site.BaseURL }}js/app.js"></script>
+    
+  </body>
+</html>
+
+
+
+
