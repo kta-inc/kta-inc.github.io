@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kta-inc.github.io/post/20170922/</loc>
+    <lastmod>2017-09-22T16:51:26+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kta-inc.github.io/about/</loc>
+    <lastmod>2017-05-25T16:22:54+09:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://kta-inc.github.io/categories/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kta-inc.github.io/</loc>
+    <lastmod>2017-09-22T16:51:26+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kta-inc.github.io/post/</loc>
+    <lastmod>2017-09-22T16:51:26+09:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>https://kta-inc.github.io/tags/</loc>
+    <priority>0</priority>
+  </url>
+  
+</urlset>
